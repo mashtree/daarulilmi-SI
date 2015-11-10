@@ -12,9 +12,9 @@
 */
 define('DB_TYPE','mysql');
 define('DB_HOST','localhost');
-define('DB_NAME','poksisi');
-define('DB_USER','root');
-define('DB_PASS','');
+define('DB_NAME','daarul_ilmi');
+define('DB_USER','darulilmi');
+define('DB_PASS','qwerty123!@#');
 
 /*
 |

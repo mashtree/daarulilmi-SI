@@ -20,6 +20,60 @@ $akses['Home'] = array(
     '__destruct'
 );
 
+$akses['BBO'] = array(
+    '__construct',
+    'index',
+    '__destruct'
+);
+
+$akses['Inventory'] = array(
+    '__construct',
+    'index',
+    '__destruct'
+);
+
+$akses['Anggaran'] = array(
+    '__construct',
+    'index',
+    '__destruct'
+);
+
+$akses['Calendar'] = array(
+    '__construct',
+    'index',
+	'ds',
+    '__destruct'
+);
+
+$akses['Penjadwalan'] = array(
+    '__construct',
+    'index',
+    '__destruct'
+);
+
+$akses['Perpustakaan'] = array(
+    '__construct',
+    'index',
+    '__destruct'
+);
+
+$akses['AkumulasiTrend'] = array(
+    '__construct',
+    'index',
+    '__destruct'
+);
+
+$akses['Dg_siswa'] = array(
+    '__construct',
+    'index',
+	'ds_siswa',
+	'ds_siswa_tracker',
+	'ds_siswa_tracker_comment',
+	'multiset_field',
+	'updateCell',
+    '__destruct'
+);
+
 /*
  * akses akses Referensi user platinum
  */

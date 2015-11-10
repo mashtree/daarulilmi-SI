@@ -47,8 +47,17 @@
 						</ul>
 					</div><!-- /gn-scroller -->
 				</nav>
+
 			</li>
-			<li><a href="http://daarulilmi.or.id/app">Home</a></li>
+			<li><a href="/">Home</a></li>
+			<li><a href="dg_siswa">Datagrid Siswa</a></li>
+			<li><a href="BBO">BBO</a></li>
+			<li><a href="calendar">Calendar</a></li>
+			<li><a href="Penjadwalan">Penjadwalan</a></li>
+			<li><a href="Perpustakaan">Perpustakaan</a></li>
+			<li><a href="Inventory">Inventory</a></li>
+			<li><a href="Anggaran">Anggaran</a></li>
+			<li><a href="AkumulasiTrend">Graph</a></li>
 			<li><a class="codrops-icon codrops-icon-prev" href="http://daarulilmi.or.id"><span>Daarul Ilmi</span></a></li>
 			<li><a class="codrops-icon codrops-icon-drop" href=""><span>mashtree</span></a></li>
 		</ul>

@@ -61,15 +61,30 @@ $registry->roleAuth = $roleAuth;
 foreach($roleAuth as $key=>$value){
 	$registry->auth->add_roles($roleAuth['ADMIN']);
 } 
+
 $registry->auth->add_access('home',$roleAuth['ADMIN'],$akses['Home']);
 $registry->auth->add_access('auth',$roleAuth['ADMIN'],$akses['Auth']);
+$registry->auth->add_access('calendar',$roleAuth['ADMIN'],$akses['Calendar']);
+$registry->auth->add_access('dg_siswa',$roleAuth['ADMIN'],$akses['Dg_siswa']);
+$registry->auth->add_access('AkumulasiTrend',$roleAuth['ADMIN'],$akses['AkumulasiTrend']);
+$registry->auth->add_access('Penjadwalan',$roleAuth['ADMIN'],$akses['Penjadwalan']);
+$registry->auth->add_access('Perpustakaan',$roleAuth['ADMIN'],$akses['Perpustakaan']);
+$registry->auth->add_access('Inventory',$roleAuth['ADMIN'],$akses['Inventory']);
+$registry->auth->add_access('Anggaran',$roleAuth['ADMIN'],$akses['Anggaran']);
+$registry->auth->add_access('BBO',$roleAuth['ADMIN'],$akses['BBO']);
+
+
+
 $registry->auth->add_access('home',$roleAuth['USTADZ'],$akses['Home']);
 $registry->auth->add_access('auth',$roleAuth['USTADZ'],$akses['Auth']);
+
 $registry->auth->add_access('home',$roleAuth['WALI'],$akses['Home']);
 $registry->auth->add_access('auth',$roleAuth['WALI'],$akses['Auth']);
+
 $registry->auth->add_roles('guest'); //admin
 $registry->auth->add_access('home','guest',$akses['Home']);
 $registry->auth->add_access('auth','guest',$akses['Auth']);
+
 $registry->exception = new ClassException();
 $registry->bootstrap = new Bootstrap($registry);
 
