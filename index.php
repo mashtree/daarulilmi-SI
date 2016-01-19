@@ -71,6 +71,9 @@ $registry->auth->add_access('Penjadwalan',$roleAuth['ADMIN'],$akses['Penjadwalan
 $registry->auth->add_access('Perpustakaan',$roleAuth['ADMIN'],$akses['Perpustakaan']);
 $registry->auth->add_access('Inventory',$roleAuth['ADMIN'],$akses['Inventory']);
 $registry->auth->add_access('Anggaran',$roleAuth['ADMIN'],$akses['Anggaran']);
+$registry->auth->add_access('kar',$roleAuth['ADMIN'],$akses['Kar']);
+$registry->auth->add_access('ortu',$roleAuth['ADMIN'],$akses['Ortu']);
+$registry->auth->add_access('siswa',$roleAuth['ADMIN'],$akses['Siswa']);
 $registry->auth->add_access('BBO',$roleAuth['ADMIN'],$akses['BBO']);
 
 

@@ -74,6 +74,52 @@ $akses['Dg_siswa'] = array(
     '__destruct'
 );
 
+$akses['Kar'] = array(
+    '__construct',
+    'index',
+	'karyawan',
+	'databasic',
+	'get_jabatan',
+	'create_kar',
+	'remove_kar',
+	'get_by_id',
+    'update_kar',
+    'update_kar_guru',
+    'get_detil_guru',
+    'kar_aktif',
+    'get_contacts',
+    'get_contact',
+    'create_contact',
+    'update_contact',
+    'delete_contact',
+    'get_referensi',
+    '__destruct'
+);
+
+$akses['Ortu'] = array(
+    '__construct',
+    'index',
+    'databasic',
+    'create',
+    'get_referensi',
+    'get_by_id',
+    'remove_ortu',
+    'update',
+    'get_contacts',
+    'get_contact',
+    'get_detil_ortu',
+    'create_contact',
+    'update_contact',
+    'delete_contact',
+    '__destruct'
+);
+
+$akses['Siswa'] = array(
+    '__construct',
+    'index',
+    '__destruct'
+);
+
 /*
  * akses akses Referensi user platinum
  */

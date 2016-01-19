@@ -10,12 +10,14 @@ class Database extends PDO {
     public $db;
     public $bind;
     protected $_fetchMode = PDO::FETCH_ASSOC;
+	private $lastInsertId;
+	private $affectedRows;
 
     public function __construct() {
 		try {
 			parent::__construct(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
 		} catch ( PDOException $e )  {
-			echo " tidak bisa mengakses database";
+			echo "<div style='color:white;margin-top:30%;margin-left:40%;background-color:red;align:center;width:25%;position:absolute'>TIDAK DAPAT MENGAKSES DATABASE</div>";
 		}
 	}
 
@@ -45,19 +47,25 @@ class Database extends PDO {
         } else {
             $wheres = $where;
         }
+		$this->beginTransaction();
+		try{
+			$sql = "UPDATE $table SET $field WHERE $wheres";
 
-        $sql = "UPDATE $table SET $field WHERE $wheres";
+	//        echo $sql;
+			$sth = $this->prepare($sql);
 
-//        echo $sql;
-        $sth = $this->prepare($sql);
+			foreach ($data as $key => $value) {
+				$sth->bindValue(":$key", $value);
+			}
 
-        foreach ($data as $key => $value) {
-            $sth->bindValue(":$key", $value);
-        }
-
-        $sth->execute();
-
-        return true;
+			$sth->execute();
+			$this->affectedRows = $sth->rowCount();
+			$this->commit();
+			return true;
+		}catch(PDOException $e){
+			$this->rollback();
+			return false;
+		}
     }
 
     public function insert($table, $data) {
@@ -67,28 +75,41 @@ class Database extends PDO {
         $fieldName = implode(',', array_keys($data));
         $fieldValue = implode(',:', array_keys($data));
         $fieldValue = ':' . $fieldValue;
+		$this->beginTransaction();
+		try{
+			$sql = "INSERT INTO $table($fieldName) VALUES ($fieldValue)";
 
-        $sql = "INSERT INTO $table($fieldName) VALUES ($fieldValue)";
+			$sth = $this->prepare($sql);
 
-        $sth = $this->prepare($sql);
+			foreach ($data as $key => $value) {
+				$sth->bindValue(":$key", $value);
+			}
 
-        foreach ($data as $key => $value) {
-            $sth->bindValue(":$key", $value);
-        }
-
-        $sth->execute();
-
-        return true;
+			$sth->execute();
+			
+			$this->affectedRows = $sth->rowCount();
+			$this->commit();
+			return true;
+		}catch(PDOException $e){
+			$this->rollback();
+			return false;
+		}
     }
 
     public function delete($table, $where) {
+		$this->beginTransaction();
+		try{
+			$sql = "DELETE FROM $table WHERE $where";
 
-        $sql = "DELETE FROM $table WHERE $where";
-
-        $sth = $this->prepare($sql);
-        $sth->execute();
-
-        return true;
+			$sth = $this->prepare($sql);
+			$sth->execute();
+			$this->affectedRows = $sth->rowCount();
+			$this->commit();
+			return true;
+		}catch(PDOException $e){
+			$this->rollback();
+			return false;
+		}
     }
 
     public function countRow($table) {
